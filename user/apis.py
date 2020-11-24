@@ -2,6 +2,7 @@ import logging
 
 from django.core.cache import cache
 
+from celery_task import tasks
 from common import stat
 from common import keys
 from libs.cache import rds
@@ -102,5 +103,10 @@ def upload_avatar(request):
     4. 删除本地文件
     '''
     avatar_file = request.FILES.get('avatar')
-    logics.upload_avatar.delay(request.uid, avatar_file)
+    tasks.upload_avatar.delay(request.uid, avatar_file)
+    return render_json()
+
+def test():
+
+    tasks.test.apply_async()
     return render_json()

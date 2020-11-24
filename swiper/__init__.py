@@ -1,6 +1,6 @@
-from pymysql import install_as_MySQLdb
-
+import pymysql 
 from libs.orm import patch_model
 
-install_as_MySQLdb()
+pymysql.version_info = (1, 4, 13, "final", 0)
+pymysql.install_as_MySQLdb()
 patch_model()

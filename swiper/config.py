@@ -6,7 +6,7 @@
 REDIS = {
     'host': 'localhost',
     'port': 6379,
-    'db': 5,
+    'db': 10,
 }
 
 
